@@ -90,6 +90,7 @@ public class ServiciosController {
 
         opcionRepository.save(opcion);
         serviciosRepository.save(servicio);
+        a.addFlashAttribute("msg", "1");
         return "redirect:/servicios";
     }
 
@@ -124,6 +125,7 @@ public class ServiciosController {
 
         serviciosRepository.save(servicio);
         opcionServicioRepository.save(opcionServicio);
+        a.addFlashAttribute("msg", "0");
         return "redirect:/servicios";
     }
 

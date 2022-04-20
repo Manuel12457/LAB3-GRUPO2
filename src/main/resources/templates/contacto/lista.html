@@ -11,10 +11,10 @@
 <body>
 <div class="container">
   <h1>Lista de Contactos/Dueños</h1>
-  <a class="btn btn-primary mt-4 mb-4" th:href="@{'/contactos/nuevo'}">Nuevo Contacto</a>  <!-- COMPLETAR -->
+  <a class="btn btn-primary mt-4 mb-4" th:href="@{'/contactos/nuevo'}">Nuevo Contacto</a>
   <!--<div th:if="${msg!=null}" class="alert alert-success" th:text="${msg}"></div>-->
 
-  <table class="table">  <!-- COMPLETAR -->
+  <table class="table">
     <thead>
     <tr>
       <th>#</th>
@@ -32,11 +32,11 @@
       <td th:text="${cuenta.correo}"></td>
       <td th:text="${cuenta.direccion}"></td>
       <td th:text="${cuenta.telefono}"></td>
-      <td ></td>
+      <td><a class="btn btn-success" th:href="@{'/mascotas?id=' + ${cuenta.id}}">Ver más</a></td>
 
-      <td><a class="btn btn-primary">Editar</a>
+      <td><a class="btn btn-primary"  th:href="@{'/contactos/editar?id=' + ${cuenta.id}}">Editar</a>
       </td>
-      <td><a class="btn btn-danger">Borrar</a>
+      <td><a class="btn btn-danger" th:href="@{'/contactos/borrar?id=' + ${cuenta.id}}">Borrar</a>
       </td>
     </tr>
     </tbody>

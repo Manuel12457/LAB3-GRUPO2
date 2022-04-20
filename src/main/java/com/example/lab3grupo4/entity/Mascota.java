@@ -1,7 +1,5 @@
 package com.example.lab3grupo4.entity;
 
-import com.example.lab3grupo4.entity.Cuenta;
-import com.example.lab3grupo4.entity.RazaEspecie;
 
 import javax.persistence.*;
 
@@ -11,7 +9,7 @@ public class Mascota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idmascota", nullable = false)
-    private Integer id;
+    private Integer idmascota;
 
     @Column(name = "nombre", nullable = false, length = 45)
     private String nombre;
@@ -105,11 +103,11 @@ public class Mascota {
         this.nombre = nombre;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdmascota() {
+        return idmascota;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdmascota(Integer id) {
+        this.idmascota = id;
     }
 }

@@ -14,13 +14,14 @@
 
     </div>
     <div class="container">
-        <img src="mascotas.jpg" width="1080" height="540">
+        <img th:src="@{/images/mascotas.jpg}" width="1080" height="540">
     </div>
     <div style="text-align: center">
         <a th:href="@{/mascotas}" type="button" class="btn btn-outline-info btn-lg"> Lista de Mascota </a>
         <button type="button" class="btn btn-outline-info btn-lg"> Contacto y/o Dueño </button>
         <button type="button" class="btn btn-outline-info btn-lg"> Servicio </button>
-        <button type="button" class="btn btn-outline-info btn-lg"> Nuevo Responsable </button>
+        <a th:href="@{/responsables/listar}" type="button" class="btn btn-outline-info btn-lg"> Nuevo Responsable</a>
+
     </div>
 </body>
 </html>

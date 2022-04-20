@@ -9,10 +9,12 @@
     <title>Lista Mascotas</title>
 </head>
 <body>
+    <div th:replace="/fragments/navbar.html :: navbar">
+    </div>
 <div class="container">
     <h1 class="font-italic" style=" text-align: center ;color: #0c5460">Lista de Mascotas en Televet</h1>
+    <div th:if="${msg != null}" th:text="${msg}" class="alert alert-danger" role="alert"></div>
     <a class="btn btn-outline-info mt-4 mb-4" th:href="@{/mascotas/new}">Nueva Mascota</a>
-
     <form class="form-group mb-3" method="get" th:action="@{/mascotas/search}">
         <div class="input-group-append">
             <input class="form-control mr-2" placeholder="Ingrese la búsqueda" name="search" th:value="${search}">
@@ -21,6 +23,7 @@
         </div>
     </form>
     <div class="container-fluid">
+
         <table class="table table-striped">
             <tr>
                 <th>#</th>
@@ -38,12 +41,13 @@
                 <td th:text="${mascota.nombre}"></td>
                 <td th:text="${mascota.anho}"></td>
                 <td th:text="${mascota.sexo}"></td>
-                <td th:text="${mascota.razaOtros}"></td>
-                <td><a class="btn btn-info" th:href="@{'/mascotas/info' + '?id=' + ${mascota.id}}">Detalle de Servicios</a>
+                <td th:text="${mascota.descripcion}" th:if="${!mascota.descripcion.contains('Otra raza')}"></td>
+                <td th:text="${mascota.raza}" th:if="${mascota.descripcion.contains('Otra raza')}"></td>
+                <td><a class="btn btn-info" th:href="@{'/mascotas/info' + '?id=' + ${mascota.idmascota}}">Detalle de Servicios</a>
                 </td>
-                <td><a class="btn btn-primary" th:href="@{'/mascotas/edit' + '?id=' + ${mascota.id}}">Editar</a>
+                <td><a class="btn btn-primary" th:href="@{'/mascotas/edit' + '?id=' + ${mascota.idmascota}}">Editar</a>
                 </td>
-                <td><a class="btn btn-danger" th:href="@{'/inventario/delete' + '?id=' + ${mascota.id}}">Borrar</a>
+                <td><a class="btn btn-danger" th:href="@{'/mascotas/delete' + '?id=' + ${mascota.idmascota}}">Borrar</a>
                 </td>
             </tr>
         </table>

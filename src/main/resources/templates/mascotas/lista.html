@@ -10,6 +10,22 @@
 </head>
 <body>
 <div class="container">
+
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+            <div class="collapse navbar-collapse justify-content-end" id="navbar-app">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/mascotas}">Mascotas</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/responsables/listar}">Responsables</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
     <h1 class="font-italic" style=" text-align: center ;color: #0c5460">Lista de Mascotas en Televet</h1>
     <div th:if="${msg != null}" th:text="${msg}" class="alert alert-danger" role="alert"></div>
     <a class="btn btn-outline-info mt-4 mb-4" th:href="@{/mascotas/new}">Nueva Mascota</a>

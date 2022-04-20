@@ -39,8 +39,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="responsable : ${responsableList}">
-                            <td th:text="${responsable.id}"></td>
+                        <tr th:each="responsable, info : ${responsableList}">
+                            <td th:text="${info.index + 1 }"></td>
                             <td th:text="${responsable.nombre}"></td>
 
                         </tr>

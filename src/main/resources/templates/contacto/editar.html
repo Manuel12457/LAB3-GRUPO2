@@ -27,7 +27,9 @@
         <label for="sede">Contraseña</label>
         <input type="text" class="form-control" id="sede" name="sede"th:value="${cuenta.password}">
     </div>
-
+    <br/>
+    <a th:href="@{/contactos/lista}" class="btn btn-danger">Cancelar</a>
+    <button type="submit" class="btn btn-primary">Guardar</button>
     <br/>
 
     <div class="container px-4 py-5">
@@ -52,11 +54,7 @@
             </td>
         </tr>
     </table>
-
-
     </div>
-    <a th:href="@{/contactos/lista}" class="btn btn-danger">Cancelar</a>
-    <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
 </body>
 </html>

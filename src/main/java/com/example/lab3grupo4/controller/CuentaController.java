@@ -81,6 +81,17 @@ public class CuentaController {
 
     }
 
+    @GetMapping("/verMascota")
+    public String verMascota(@RequestParam("id") int id, Model model) {
+
+            List<Mascota> mascotas = mascotaRepository.listarMascota(id);
+            model.addAttribute("mascotas", mascotas);
+
+            return "contacto/vermascotas";
+
+    }
+
+
 
 
 }

@@ -14,7 +14,10 @@
 <div class="container">
   <h1>Lista de Contactos/Dueños</h1>
   <a class="btn btn-primary mt-4 mb-4" th:href="@{'/contactos/nuevo'}">Nuevo Contacto</a>
-  <!--<div th:if="${msg!=null}" class="alert alert-success" th:text="${msg}"></div>-->
+  <div th:if="${msg1!=null}" class="alert alert-success" th:text="${msg1}"></div>
+  <div th:if="${msg2!=null}" class="alert alert-warning" th:text="${msg2}"></div>
+  <div th:if="${msg3!=null}" class="alert alert-danger" th:text="${msg3}"></div>
+  <div th:if="${msg4!=null}" class="alert alert-danger" th:text="${msg4}"></div>
 
   <table class="table">
     <thead>

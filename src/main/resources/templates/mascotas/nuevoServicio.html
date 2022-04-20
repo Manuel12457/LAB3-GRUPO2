@@ -17,42 +17,46 @@
             <div id="content">
                 <main>
                     <div class="page-header text-center">
-                        <h2>Nueva Mascota</h2>
+                        <h2>Nuevo Servicio</h2>
                     </div>
                     <div class="container-fluid">
-                        <form method="POST" th:action="@{'/mascotas/save'}" class="col-4">
+                        <form method="POST" th:action="@{'/mascotas/newService/save'}" class="col-4">
+
+                            <input th:value="${mascota.idmascota}" name="mascotaIdmascota" type="text" class="form-control" hidden>
                             <div class="mb-3">
-                                <label class="form-label">Nombre de la mascota</label>
-                                <input name="nombre" type="text" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Año</label>
-                                <input type="text" class="form-control" name="anho">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Historia</label>
-                                <input type="text" class="form-control" name="historia">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Observaciones</label>
-                                <input type="text" class="form-control" name="observaciones">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Sexo</label>
-                                <input type="text" class="form-control" name="sexo">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Raza</label>
-                                <select class="form-control" name="razaEspecieIdraza">
-                                    <option th:each="raza: ${listaRazas}" th:text="${raza.descripcion}"
-                                            th:value="${raza.id}"></option>
+                                <label class="form-label">Cuenta</label>
+                                <select class="form-control" name="cuentaIdcuenta">
+                                    <option th:each="cuentas: ${listaCuentas}" th:text="${cuentas.correo}"
+                                            th:value="${cuentas.id}"></option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Otra Raza</label>
-                                <input type="text" class="form-control" name="razaOtros">
+                                <label class="form-label">Hora Inicio</label>
+                                <input name="horaInicioStr" placeholder="hh:mm" type="text" class="form-control">
                             </div>
-                            <a th:href="@{'/mascotas'}" class="btn btn-danger">Cancelar</a>
+                            <div class="mb-3">
+                                <label class="form-label">Duracion</label>
+                                <input name="duracion" type="text" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Entrega</label>
+                                <input name="entrega" type="text" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label"></label>
+                                <select class="form-control" name="responsableIdresponsable">
+                                    <option th:each="responsable: ${listaResponsables}" th:text="${responsable.nombre}"
+                                            th:value="${responsable.id}"></option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label"></label>
+                                <select class="form-control" name="opcion">
+                                    <option th:each="opcione: ${opcion}" th:text="${opcione.descripcion}"
+                                            th:value="${opcione.id}"></option>
+                                </select>
+                            </div>
+                            <a th:href="@{'/mascotas/info?id=' + ${mascota.idmascota}}" class="btn btn-danger">Cancelar</a>
                             <button type="submit" class="btn btn-primary">Guardar</button>
                         </form>
                     </div>

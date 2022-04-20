@@ -13,12 +13,12 @@ public interface MascotasRepository extends JpaRepository<Mascota,Integer>{
     @Query(nativeQuery = true, value = "SELECT idmascota,nombre, anho, sexo,descripcion,raza_otros as 'raza' FROM mascota m INNER JOIN raza_especie r ON r.idraza = m.raza_especie_idraza")
     List<MascotasDTO> mascotasConRaza();
 
-    @Query(value="select * from mascota m\n" +
+    @Query(value="select idmascota,nombre, anho, sexo,descripcion,raza_otros as 'raza' from mascota m\n" +
             "join raza_especie r on m.raza_especie_idraza = r.idraza\n" +
             "join cuenta c on m.cuenta_idcuenta = c.idcuenta\n" +
-            "where LOWER(m.sexo) like %?1% or LOWER(r.descripcion) like %?1% \n" +
+            "where LOWER(m.sexo) like %?1% or LOWER(r.descripcion) like %?1% " +
             "or LOWER(m.raza_otros) like %?1% or LOWER(c.correo) like %?1%",nativeQuery = true)
-    List<Mascota> listarMascotasSearch(String search);
+    List<MascotasDTO> listarMascotasSearch(String search);
 
     @Query(value="select * from mascota m" +
             "where m.nombre like %?1% ",nativeQuery = true)

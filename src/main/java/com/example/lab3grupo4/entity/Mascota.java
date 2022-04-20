@@ -11,7 +11,7 @@ public class Mascota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idmascota", nullable = false)
-    private int id;
+    private int idmascota;
 
     @Column(name = "nombre", nullable = false)
     private String nombre;
@@ -105,11 +105,11 @@ public class Mascota {
         this.nombre = nombre;
     }
 
-    public int getId() {
-        return id;
+    public int getIdmascota() {
+        return idmascota;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdmascota(int id) {
+        this.idmascota = id;
     }
 }

@@ -6,7 +6,7 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        <title>Nueva Mascota</title>
+        <title>Editar Mascota</title>
     </head>
     <body>
         <div th:replace="/fragments/navbar.html :: navbar">
@@ -17,43 +17,46 @@
             <div id="content">
                 <main>
                     <div class="page-header text-center">
-                        <h2>Nueva Mascota</h2>
+                        <h2>Editar Mascota</h2>
                     </div>
                     <div class="container-fluid">
-                        <form method="POST" th:action="@{'/mascotas/save'}" class="col-4">
+                        <form method="POST" th:action="@{'/mascotas/save'}" class="col-4" th:object="${mascota}">
+
+                            <input th:field="*{idmascota}" type="text" class="form-control" hidden>
+
                             <div class="mb-3">
                                 <label class="form-label">Nombre de la mascota</label>
-                                <input name="nombre" type="text" class="form-control">
+                                <input th:field="*{nombre}" type="text" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Año</label>
-                                <input type="text" class="form-control" name="anho">
+                                <input type="text" class="form-control" th:field="*{anho}">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Historia</label>
-                                <input type="text" class="form-control" name="historia">
+                                <input type="text" class="form-control" th:field="*{historia}">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Observaciones</label>
-                                <input type="text" class="form-control" name="observaciones">
+                                <input type="text" class="form-control" th:field="*{observaciones}">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Sexo</label>
-                                <input type="text" class="form-control" name="sexo">
+                                <input type="text" class="form-control" th:field="*{sexo}">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Raza</label>
-                                <select class="form-control" name="razaEspecieIdraza">
+                                <select class="form-control" th:field="*{razaEspecieIdraza}">
                                     <option th:each="raza: ${listaRazas}" th:text="${raza.descripcion}"
                                             th:value="${raza.id}"></option>
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Otra Raza</label>
-                                <input type="text" class="form-control" name="razaOtros">
+                                <input type="text" class="form-control" th:field="*{razaOtros}">
                             </div>
                             <a th:href="@{'/mascotas'}" class="btn btn-danger">Cancelar</a>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
                         </form>
                     </div>
                 </main>

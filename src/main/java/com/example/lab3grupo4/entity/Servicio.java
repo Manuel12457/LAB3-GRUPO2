@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "servicio")
@@ -12,7 +13,7 @@ public class Servicio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idservicio", nullable = false)
-    private int id;
+    private Integer idservicio;
 
     @ManyToOne
     @JoinColumn(name = "mascota_idmascota", nullable = false)
@@ -86,10 +87,10 @@ public class Servicio {
     }
 
     public int getId() {
-        return id;
+        return idservicio;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(Integer id) {
+        this.idservicio = id;
     }
 }

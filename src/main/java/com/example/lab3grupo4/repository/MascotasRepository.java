@@ -25,4 +25,7 @@ public interface MascotasRepository extends JpaRepository<Mascota,Integer>{
     List<Mascota> listarMascotasxNombre(String name);
 
 
+
+    @Query(value="SELECT * FROM mascota where cuenta_idcuenta like %?1%",nativeQuery = true)
+    List<Mascota> listarMascota(int id);
 }

@@ -24,6 +24,34 @@
         <label for="sede">Contraseña</label>
         <input type="text" class="form-control" id="sede" name="sede"th:value="${cuenta.password}">
     </div>
+
+    <br/>
+
+    <div class="container px-4 py-5">
+        <h1 class="pb-2 border-bottom">Lista de Mascotas</h1>
+        <table class="table table-sm">
+            <tr>
+                <th>#</th>
+                <th>Nombre de la mascota</th>
+                <th></th>
+
+            </tr>
+            <tr th:each="mascota, i : ${mascotas}">
+                <td th:text="${i.index + 1}"></td>
+                <td th:text="${mascota.nombre}"></td>
+                <td><a class="btn btn-danger" th:href="@{'/contactos/borrarMascota' + '?id=' + ${mascota.id}}">Borrar</a></td>
+
+            </tr>
+            <tr>
+            <td colspan="5"
+                th:if="${#lists.isEmpty(mascotas)}">
+                Este contacto no tiene mascotas registradas
+            </td>
+        </tr>
+    </table>
+
+
+    </div>
     <a th:href="@{/contactos/lista}" class="btn btn-danger">Cancelar</a>
     <button type="submit" class="btn btn-primary">Guardar</button>
 </form>

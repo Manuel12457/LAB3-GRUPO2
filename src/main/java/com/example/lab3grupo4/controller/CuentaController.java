@@ -48,7 +48,7 @@ public class CuentaController {
 
 
     @GetMapping("/editar")
-    public String editarForm(@RequestParam("id") int id,
+    public String editarForm(@RequestParam("id") Integer id,
                              RedirectAttributes attr, Model model) {
 
         Optional<Cuenta> optionalShipper = cuentaRepository.findById(id);

@@ -24,13 +24,11 @@
 
     </div>
     <div class="form-group">
-        <label for="telefono">Teléfono</label>
-        <input type="text" class="form-control" id="telefono" name="telefono" th:value="${cuenta.telefono}" disabled>
+        <input type="text" class="form-control" id="telefono" name="telefono" th:value="${cuenta.telefono}" hidden>
 
     </div>
     <div class="form-group">
-        <label for="correo">Correo Electronico</label>
-        <input type="text" class="form-control" id="correo" name="correo" th:value="${cuenta.correo}" disabled>
+        <input type="text" class="form-control" id="correo" name="correo" th:value="${cuenta.correo}" hidden>
 
     </div>
     <div class="form-group">
@@ -57,7 +55,7 @@
             <tr th:each="mascota, i : ${mascotas}">
                 <td th:text="${i.index + 1}"></td>
                 <td th:text="${mascota.nombre}"></td>
-                <td><a class="btn btn-danger" th:href="@{'/contactos/borrarMascota' + '?id=' + ${mascota.id}}">Borrar</a></td>
+                <td><a class="btn btn-danger" th:href="@{'/contactos/borrarMascota' + '?id=' + ${mascota.idmascota}}">Borrar</a></td>
 
             </tr>
             <tr>

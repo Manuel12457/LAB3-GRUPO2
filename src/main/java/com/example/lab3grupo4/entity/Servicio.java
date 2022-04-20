@@ -1,5 +1,7 @@
 package com.example.lab3grupo4.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -21,6 +23,7 @@ public class Servicio {
     private Cuenta cuentaIdcuenta;
 
     @Column(name = "hora_inicio", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH-mm")
     private LocalDateTime horaInicio;
 
     @Column(name = "duracion", nullable = false)

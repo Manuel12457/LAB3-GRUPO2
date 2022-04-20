@@ -1,5 +1,7 @@
 package com.example.lab3grupo4.entity;
 
+import com.example.lab3grupo4.entity.Cuenta;
+import com.example.lab3grupo4.entity.RazaEspecie;
 
 import javax.persistence.*;
 
@@ -9,12 +11,12 @@ public class Mascota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idmascota", nullable = false)
-    private Integer idmascota;
+    private int id;
 
-    @Column(name = "nombre", nullable = false, length = 45)
+    @Column(name = "nombre", nullable = false)
     private String nombre;
 
-    @Column(name = "anho", nullable = false, length = 45)
+    @Column(name = "anho", nullable = false)
     private String anho;
 
     @Lob
@@ -25,17 +27,17 @@ public class Mascota {
     @Column(name = "observaciones", nullable = false)
     private String observaciones;
 
-    @Column(name = "sexo", nullable = false, length = 45)
+    @Column(name = "sexo", nullable = false)
     private String sexo;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
     @JoinColumn(name = "raza_especie_idraza", nullable = false)
     private RazaEspecie razaEspecieIdraza;
 
-    @Column(name = "raza_otros", length = 45)
+    @Column(name = "raza_otros")
     private String razaOtros;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "cuenta_idcuenta")
     private Cuenta cuentaIdcuenta;
 
@@ -103,11 +105,11 @@ public class Mascota {
         this.nombre = nombre;
     }
 
-    public Integer getIdmascota() {
-        return idmascota;
+    public int getId() {
+        return id;
     }
 
-    public void setIdmascota(Integer id) {
-        this.idmascota = id;
+    public void setId(int id) {
+        this.id = id;
     }
 }

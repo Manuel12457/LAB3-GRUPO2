@@ -24,13 +24,15 @@
                         <th>Nombre de Responsable</th>
                         <th>Servicio</th>
                     </tr>
-                    <tr th:each= " i : ${lis}">
+                    <tr th:each= "servicios,i : ${listaServiciosxMascota}">
                         <td th:text="${i.index + 1}"></td>
-                        <td th:text="${inventario.nombre}"></td>
-                        <td th:text="${inventario.numeroserie}"></td>
-                        <td th:text="${inventario.estado}"></td>
-                        <td th:text="${inventario.estado}"></td>
-                        <td th:text="${inventario.estado}"></td>
+                        <td th:text="${servicios.nombre}"></td>
+                        <td th:text="${servicios.anho}"></td>
+                        <td th:text="${#dates.format(servicios.horainicio,'dd-MM-yyyy hh:mm:ss')}"></td>
+                        <td th:text="${servicios.duracion}"></td>
+                        <td th:text="${servicios.entrega}"></td>
+                        <td th:text="${servicios.responsable}"></td>
+                        <td th:text="${servicios.descripcion}"></td>
                         </td>
                     </tr>
                 </table>

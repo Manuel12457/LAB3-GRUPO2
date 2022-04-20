@@ -66,11 +66,11 @@ public class MascotasController {
         return "redirect:/mascotas";
     }
 
-    @GetMapping(value = "/servicios")
+    @GetMapping(value = "/info")
     public String listaServiciosxMascotas(@ModelAttribute("servicio")Servicio servicio,
                                           @RequestParam("id") int mascid, Model model, RedirectAttributes attr){
         model.addAttribute("listaServiciosxMascota", serviciosRepository.listaServiciosxMascota(mascid));
-        return "mascotas/lista";
+        return "mascotas/servicios";
     }
 
 

@@ -8,63 +8,63 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <title>Empleado</title>
 </head>
-    <body class="container">
+    <body>
         <div th:replace="/fragments/navbar.html :: navbar">
         </div>
+        <div class="container">
+            <div class="page-header text-left">
+                <h2>Editar Contacto</h2>
+            </div>
+            <form method="post" th:action="@{'/contactos/guardar'}">
+                <input type="text" class="form-control" id="id" name="id" th:value="${cuenta.id}" hidden>
 
-<div class="page-header text-left">
-    <h2>Editar Contacto</h2>
-</div>
-<form method="post" th:action="@{'/contactos/guardar'}">
-    <input type="text" class="form-control" id="id" name="id" th:value="${cuenta.id}" hidden>
+                <div class="form-group">
+                    <label for="direccion">Direccion</label>
+                    <input type="text" class="form-control" id="direccion" name="direccion" th:value="${cuenta.direccion}">
 
-    <div class="form-group">
-        <label for="direccion">Direccion</label>
-        <input type="text" class="form-control" id="direccion" name="direccion" th:value="${cuenta.direccion}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="telefono" name="telefono" th:value="${cuenta.telefono}" hidden>
 
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" id="telefono" name="telefono" th:value="${cuenta.telefono}" hidden>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="correo" name="correo" th:value="${cuenta.correo}" hidden>
 
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" id="correo" name="correo" th:value="${cuenta.correo}" hidden>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="text" class="form-control" id="password" name="password"th:value="${cuenta.password}">
+                </div>
+                <br/>
+                <a th:href="@{/contactos/lista}" class="btn btn-danger">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Guardar</button>
 
-    </div>
-    <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="text" class="form-control" id="password" name="password"th:value="${cuenta.password}">
-    </div>
-    <br/>
-    <a th:href="@{/contactos/lista}" class="btn btn-danger">Cancelar</a>
-    <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+            <br/>
+            <div class="container px-4 py-5">
+                <h1 class="pb-2 border-bottom">Lista de Mascotas</h1>
 
-</form>
-    <br/>
+                <table class="table table-sm">
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre de la mascota</th>
+                        <th></th>
 
-    <div class="container px-4 py-5">
-        <h1 class="pb-2 border-bottom">Lista de Mascotas</h1>
+                    </tr>
+                    <tr th:each="mascota, i : ${mascotas}">
+                        <td th:text="${i.index + 1}"></td>
+                        <td th:text="${mascota.nombre}"></td>
+                        <td><a class="btn btn-danger" th:href="@{'/contactos/borrarMascota' + '?id=' + ${mascota.idmascota}}">Borrar</a></td>
 
-        <table class="table table-sm">
-            <tr>
-                <th>#</th>
-                <th>Nombre de la mascota</th>
-                <th></th>
-
-            </tr>
-            <tr th:each="mascota, i : ${mascotas}">
-                <td th:text="${i.index + 1}"></td>
-                <td th:text="${mascota.nombre}"></td>
-                <td><a class="btn btn-danger" th:href="@{'/contactos/borrarMascota' + '?id=' + ${mascota.idmascota}}">Borrar</a></td>
-
-            </tr>
-            <tr>
-            <td colspan="5"
-                th:if="${#lists.isEmpty(mascotas)}">
-                Este contacto no tiene mascotas registradas
-            </td>
-        </tr>
-    </table>
-    </div>
+                    </tr>
+                    <tr>
+                        <td colspan="5"
+                            th:if="${#lists.isEmpty(mascotas)}">
+                            Este contacto no tiene mascotas registradas
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 </body>
 </html>

@@ -8,7 +8,7 @@ public class Responsable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idresponsable", nullable = false)
-    private int id;
+    private int idresponsable;
 
     @Column(name = "nombre", nullable = false)
     private String nombre;
@@ -21,11 +21,11 @@ public class Responsable {
         this.nombre = nombre;
     }
 
-    public int getId() {
-        return id;
+    public int getIdresponsable() {
+        return idresponsable;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdresponsable(int id) {
+        this.idresponsable = id;
     }
 }

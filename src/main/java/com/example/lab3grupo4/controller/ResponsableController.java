@@ -35,12 +35,6 @@ public class ResponsableController {
 
     @PostMapping("/save")
     public String saveResponsable(RedirectAttributes a, Responsable responsable) {
-        Optional<Responsable> optionalResponsable = responsableRepository.findById(responsable.getId());
-        if (!optionalResponsable.isPresent() ) { //Hay que crear
-            a.addFlashAttribute("msg", "0");
-        } else { //Hay que actualizar
-            a.addFlashAttribute("msg", "1");
-        }
         responsableRepository.save(responsable);
         return "redirect:/responsables/listar";
     }

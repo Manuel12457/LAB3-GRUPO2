@@ -53,7 +53,9 @@ public class MascotasController {
     @GetMapping(value = {"/search"})
     public String listaMascotas(Model model, @RequestParam("search") String search){
         model.addAttribute("search", search);
+        System.out.println("search: "+search);
         model.addAttribute("listaMascotas", mascotasRepository.listarMascotasSearch(search.toLowerCase()));
+        System.out.println("size: "+ mascotasRepository.listarMascotasSearch(search.toLowerCase()).size());
         return "mascotas/lista";
     }
 

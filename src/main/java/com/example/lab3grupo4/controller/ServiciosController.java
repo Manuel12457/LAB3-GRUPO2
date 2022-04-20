@@ -83,7 +83,7 @@ public class ServiciosController {
 
         List<Responsable> listaResponsables = responsablesRepository.findAll();
         for (Responsable r : listaResponsables) {
-            if (r.getId() == idResponsable) {
+            if (r.getIdresponsable() == idResponsable) {
                 servicio.setResponsableIdresponsable(r);
             }
         }

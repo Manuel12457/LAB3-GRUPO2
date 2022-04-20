@@ -39,14 +39,17 @@
                                 <input name="duracion" type="text" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Entrega</label>
-                                <input name="entrega" type="text" class="form-control">
+                                <label class="form-label"></label>
+                                <select class="form-control" name="entrega">
+                                    <option value="Domicilio">Domicilio</option>
+                                    <option value="Recojo">Recojo</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label"></label>
                                 <select class="form-control" name="responsableIdresponsable">
                                     <option th:each="responsable: ${listaResponsables}" th:text="${responsable.nombre}"
-                                            th:value="${responsable.id}"></option>
+                                            th:value="${responsable.idresponsable}"></option>
                                 </select>
                             </div>
                             <div class="mb-3">

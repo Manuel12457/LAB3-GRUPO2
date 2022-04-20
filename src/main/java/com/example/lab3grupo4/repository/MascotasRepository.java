@@ -15,7 +15,7 @@ public interface MascotasRepository extends JpaRepository<Mascota,Integer>{
 
     @Query(value="select idmascota,nombre, anho, sexo,descripcion,raza_otros as 'raza' from mascota m\n" +
             "join raza_especie r on m.raza_especie_idraza = r.idraza\n" +
-            "join cuenta c on m.cuenta_idcuenta = c.idcuenta\n" +
+            "join cuenta c on m.cuenta_idcuenta = c.idcuenta " +
             "where LOWER(m.sexo) like %?1% or LOWER(r.descripcion) like %?1% " +
             "or LOWER(m.raza_otros) like %?1% or LOWER(c.correo) like %?1%",nativeQuery = true)
     List<MascotasDTO> listarMascotasSearch(String search);

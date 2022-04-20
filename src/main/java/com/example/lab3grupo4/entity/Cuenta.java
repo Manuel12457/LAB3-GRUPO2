@@ -10,7 +10,7 @@ public class Cuenta {
     @Column(name = "idcuenta", nullable = false)
     private int id;
 
-    @Column(name = "correo", length = 45)
+    @Column(name = "correo")
     private String correo;
 
     @Column(name = "direccion", nullable = false)

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Editar Servicios</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+    </head>
+    <body>
+
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-sm-10 pt-1">
+                    <h3 class="font-italic" style="font-size:50px;color: #0c5460">Editar Servicio</h3>
+                </div>
+            </div>
+            <div class="row">
+                <form method="post" th:action="@{'/servicios/save'}" class="col-10">
+
+                    <div class="mb-3">
+                        <label class="form-label font-italic mt-3" style="font-size:30px;color: #0c5460">Opción de servicio</label>
+                        <div class="row">
+                            <input name="idOpcion" type="number" class="form-control"
+                                   th:value="${opcion.id}" hidden>
+                            <div class="col-sm-3">
+                                <label class="form-label">Descripción</label>
+                                <input type="text" class="form-control"
+                                       maxlength="45" th:value="${opcion.descripcion}" required disabled>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="form-label">Tiempo en minutos</label>
+                                <input type="text" class="form-control"
+                                       th:value="${opcion.tiempoMinutos}" required disabled>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="form-label">Precio</label>
+                                <input name="precioOpcion" type="number" step="0.01" class="form-control" min="0"
+                                       th:value="${opcion.precio}" required>
+                            </div>
+                        </div>
+
+                        <label class="form-label font-italic mt-3" style="font-size:30px;color: #0c5460">Responsable del servicio</label>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <input name="idServicio" type="number" class="form-control" th:value="${servicio.id}" hidden>
+                                <select class="form-select" aria-label="Default select example" name="idResponsable">
+                                    <option th:each="responsable : ${listaResponsables}" th:value="${responsable.id}" th:text="${responsable.nombre}" th:selected="${servicio.responsableIdresponsable.id == responsable.id}"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a th:href="@{'/servicios'}" class="btn btn-outline-danger">Cancelar</a>
+                    <button type="submit" class="btn btn-outline-success">Editar</button>
+
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>

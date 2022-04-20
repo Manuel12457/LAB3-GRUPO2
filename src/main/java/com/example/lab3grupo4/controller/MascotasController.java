@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +35,13 @@ public class MascotasController {
     @GetMapping(value = "")
     public String listaMascostas(Model model){
         model.addAttribute("listaMascotas",mascotasRepository.mascotasConRaza());
+        return "mascotas/lista";
+    }
+
+    @GetMapping(value = {"/search"})
+    public String listaMascotas(Model model, @RequestParam("search") String search){
+        model.addAttribute("search", search);
+        model.addAttribute("listaMascotas", mascotasRepository.listarMascotasSearch(search.toLowerCase()));
         return "mascotas/lista";
     }
 
@@ -67,11 +75,21 @@ public class MascotasController {
     }
 
     @GetMapping(value = "/info")
-    public String listaServiciosxMascotas(@ModelAttribute("servicio")Servicio servicio,
+    public String listaServiciosxMascotas(@ModelAttribute("servicio") Servicio servicio,
                                           @RequestParam("id") int mascid, Model model, RedirectAttributes attr){
         model.addAttribute("listaServiciosxMascota", serviciosRepository.listaServiciosxMascota(mascid));
         return "mascotas/servicios";
     }
+
+    @PostMapping("/search")
+    public String buscar (@RequestParam("name") String name, Model model){
+        List<Mascota> mascotaOpt = mascotasRepository.listarMascotasxNombre(name);
+        model.addAttribute("listaMascotas",mascotaOpt);
+        return "mascotas/lista";
+    }
+
+
+
 
 
 }

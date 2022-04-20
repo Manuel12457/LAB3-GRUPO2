@@ -7,9 +7,10 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <title>Empleado</title>
-</head><body class="container">
-    <div th:replace="/fragments/navbar.html :: navbar">
-    </div>
+</head>
+    <body class="container">
+        <div th:replace="/fragments/navbar.html :: navbar">
+        </div>
 
 <div class="page-header text-left">
     <h2>Editar Contacto</h2>
@@ -26,11 +27,14 @@
         <label for="sede">Contraseña</label>
         <input type="text" class="form-control" id="sede" name="sede"th:value="${cuenta.password}">
     </div>
-
+    <br/>
+    <a th:href="@{/contactos/lista}" class="btn btn-danger">Cancelar</a>
+    <button type="submit" class="btn btn-primary">Guardar</button>
     <br/>
 
     <div class="container px-4 py-5">
         <h1 class="pb-2 border-bottom">Lista de Mascotas</h1>
+
         <table class="table table-sm">
             <tr>
                 <th>#</th>
@@ -51,11 +55,7 @@
             </td>
         </tr>
     </table>
-
-
     </div>
-    <a th:href="@{/contactos/lista}" class="btn btn-danger">Cancelar</a>
-    <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
 </body>
 </html>

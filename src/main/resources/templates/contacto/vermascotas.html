@@ -6,34 +6,48 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <title>Mascotas</title>
-</head><body class="container">
-    <div th:replace="/fragments/navbar.html :: navbar">
-    </div>
+    <title>Empleado</title>
+</head>
+    <body class="container">
+        <div th:replace="/fragments/navbar.html :: navbar">
+        </div>
+
 <div class="page-header text-left">
-    <h2>Ver Mascotas</h2>
 
-    <table class="table table-sm">
-        <tr>
-            <th>#</th>
-            <th>Nombre de la mascota</th>
-
-        </tr>
-        <tr th:each="mascota, i : ${mascotas}">
-            <td th:text="${i.index + 1}"></td>
-            <td th:text="${mascota.nombre}"></td>
-        </tr>
-        <tr> <!--Se mostrará solo si no hay trabajadores en la sede -->
-            <td colspan="5"
-                th:if="${#lists.isEmpty(mascotas)}">
-                No se registran trabajadores en esta sede
-            </td>
-        </tr>
-    </table>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+    <div class="container px-4 py-5">
+        <h1 class="pb-2 border-bottom">Tu Lista de Mascotas</h1>
+        <div>
+        <a th:href="@{/contactos/lista}" class="btn btn-primary">Regresar a la lista</a>
+        </div>
+        <br>
+        <table class="table table-sm">
+            <tr>
+                <th>#</th>
+                <th>Nombre mascota</th>
+                <th>Año</th>
+                <th>Sexo</th>
+
+            </tr>
+            <tr th:each="mascota, i : ${mascotas}">
+                <td th:text="${i.index + 1}"></td>
+                <td th:text="${mascota.nombre}"></td>
+                <td th:text="${mascota.anho}"></td>
+                <td th:text="${mascota.sexo}"></td>
+
+            </tr>
+            <tr>
+                <td colspan="5"
+                    th:if="${#lists.isEmpty(mascotas)}">
+                    Este contacto no tiene mascotas registradas
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+
+</form>
 </body>
 </html>

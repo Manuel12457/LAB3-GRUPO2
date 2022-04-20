@@ -1,11 +1,13 @@
 package com.example.lab3grupo4.entity;
 
+import com.example.lab3grupo4.entity.Cuenta;
+import com.example.lab3grupo4.entity.RazaEspecie;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "mascota")
 public class Mascota {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idmascota", nullable = false)
@@ -39,60 +41,12 @@ public class Mascota {
     @JoinColumn(name = "cuenta_idcuenta")
     private Cuenta cuentaIdcuenta;
 
-    public Integer getId() {
-        return id;
+    public Cuenta getCuentaIdcuenta() {
+        return cuentaIdcuenta;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getAnho() {
-        return anho;
-    }
-
-    public void setAnho(String anho) {
-        this.anho = anho;
-    }
-
-    public String getHistoria() {
-        return historia;
-    }
-
-    public void setHistoria(String historia) {
-        this.historia = historia;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public RazaEspecie getRazaEspecieIdraza() {
-        return razaEspecieIdraza;
-    }
-
-    public void setRazaEspecieIdraza(RazaEspecie razaEspecieIdraza) {
-        this.razaEspecieIdraza = razaEspecieIdraza;
+    public void setCuentaIdcuenta(Cuenta cuentaIdcuenta) {
+        this.cuentaIdcuenta = cuentaIdcuenta;
     }
 
     public String getRazaOtros() {
@@ -103,12 +57,59 @@ public class Mascota {
         this.razaOtros = razaOtros;
     }
 
-    public Cuenta getCuentaIdcuenta() {
-        return cuentaIdcuenta;
+    public RazaEspecie getRazaEspecieIdraza() {
+        return razaEspecieIdraza;
     }
 
-    public void setCuentaIdcuenta(Cuenta cuentaIdcuenta) {
-        this.cuentaIdcuenta = cuentaIdcuenta;
+    public void setRazaEspecieIdraza(RazaEspecie razaEspecieIdraza) {
+        this.razaEspecieIdraza = razaEspecieIdraza;
     }
 
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
+
+    public String getHistoria() {
+        return historia;
+    }
+
+    public void setHistoria(String historia) {
+        this.historia = historia;
+    }
+
+    public String getAnho() {
+        return anho;
+    }
+
+    public void setAnho(String anho) {
+        this.anho = anho;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

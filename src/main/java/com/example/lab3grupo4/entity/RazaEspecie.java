@@ -8,13 +8,24 @@ public class RazaEspecie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idraza", nullable = false)
-    private Integer id;
+    private int id;
 
-    public Integer getId() {
+    @Column(name = "descripcion", nullable = false)
+    private String descripcion;
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

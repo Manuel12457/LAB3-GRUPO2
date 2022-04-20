@@ -40,8 +40,8 @@ public class CuentaController {
 
     @PostMapping("/guardar")
     public String guardarContacto(Cuenta cuenta,RedirectAttributes attr){
-        cuentaRepository.save(cuenta);
         attr.addFlashAttribute("msg1", "Contacto guardado exitosamente");
+        cuentaRepository.save(cuenta);
         return "redirect:/contactos/lista";
 
     }
